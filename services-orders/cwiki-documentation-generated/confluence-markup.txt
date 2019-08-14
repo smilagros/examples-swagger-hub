@@ -1,0 +1,467 @@
+h1. Services Orders API Swagger These are the services for Services Orders
+
+*Version:* 1.0
+
+----
+
+{toc:printable=true|style=square|minLevel=2|maxLevel=3|type=list|outline=false|include=.*}
+
+h2. Endpoints
+
+    h3. deleteItem
+    {status:colour=Yellow|title=delete|subtle=false}
+    {code}
+    delete /line-item/{id}
+    {code}
+    *Summary:* Deleted a item
+    *Description:* 
+
+
+    h4. Parameters
+        h5. Path Parameters
+        ||Name||Description||Required||Default||Pattern||
+        |id |Item id to delete |(/) | |  |
+
+
+
+
+
+
+
+
+    h4. Responses
+        *Status Code:* 400
+        *Message:*     Invalid ID supplied
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Invalid ID supplied"
+}
+        {code}
+        *Status Code:* 404
+        *Message:*     Item not found
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Item not found"
+}
+        {code}
+    ----
+
+    h3. getItemById
+    {status:colour=Yellow|title=get|subtle=false}
+    {code}
+    get /line-item/{id}
+    {code}
+    *Summary:* Find item by ID
+    *Description:* Returns a single item
+
+
+    h4. Parameters
+        h5. Path Parameters
+        ||Name||Description||Required||Default||Pattern||
+        |id |ID of item to return |(/) | |  |
+
+
+
+
+
+
+
+
+    h4. Responses
+        *Status Code:* 200
+        *Message:*     successful operation
+        {code:title=Response Type}
+Item
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "successful operation",
+  "schema" : {
+    "$ref" : "#/definitions/Item"
+  }
+}
+        {code}
+        *Status Code:* 400
+        *Message:*     Invalid ID supplied
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Invalid ID supplied"
+}
+        {code}
+        *Status Code:* 404
+        *Message:*     Item not found
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Item not found"
+}
+        {code}
+    ----
+
+    h3. deleteServiceOrder
+    {status:colour=Yellow|title=delete|subtle=false}
+    {code}
+    delete /serviceorder/{id}
+    {code}
+    *Summary:* Delete service order by ID
+    *Description:* For valid response try integer IDs with positive integer value.\\ \\ Negative or non-integer values will generate API errors
+
+
+    h4. Parameters
+        h5. Path Parameters
+        ||Name||Description||Required||Default||Pattern||
+        |id |ID of the order that needs to be deleted |(/) | |  |
+
+
+
+
+
+
+
+
+    h4. Responses
+        *Status Code:* 400
+        *Message:*     Invalid ID supplied
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Invalid ID supplied"
+}
+        {code}
+        *Status Code:* 404
+        *Message:*     Order not found
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Order not found"
+}
+        {code}
+    ----
+
+    h3. getAllServiceOrders
+    {status:colour=Yellow|title=get|subtle=false}
+    {code}
+    get /service-order
+    {code}
+    *Summary:* Retrieve all Services Orders
+    *Description:* Retrieve all Services Orders
+
+
+    h4. Parameters
+
+
+
+
+
+
+
+    h4. Responses
+        *Status Code:* 200
+        *Message:*     successful operation
+        {code:title=Response Type}
+ServiceOrder
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "successful operation",
+  "schema" : {
+    "$ref" : "#/definitions/ServiceOrder"
+  }
+}
+        {code}
+        *Status Code:* 404
+        *Message:*     Orders not found
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Orders not found"
+}
+        {code}
+    ----
+
+    h3. getOrderById
+    {status:colour=Yellow|title=get|subtle=false}
+    {code}
+    get /serviceorder/{id}
+    {code}
+    *Summary:* Find Service order by ID
+    *Description:* For valid response try integer IDs with value &gt;&#x3D; 1 and &lt;&#x3D; 10.\\ \\ Other values will generated exceptions
+
+
+    h4. Parameters
+        h5. Path Parameters
+        ||Name||Description||Required||Default||Pattern||
+        |id |ID of item that needs to be fetched |(/) | |  |
+
+
+
+
+
+
+
+
+    h4. Responses
+        *Status Code:* 200
+        *Message:*     successful operation
+        {code:title=Response Type}
+ServiceOrder
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "successful operation",
+  "schema" : {
+    "$ref" : "#/definitions/ServiceOrder"
+  }
+}
+        {code}
+        *Status Code:* 400
+        *Message:*     Invalid ID supplied
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Invalid ID supplied"
+}
+        {code}
+        *Status Code:* 404
+        *Message:*     Order not found
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Order not found"
+}
+        {code}
+    ----
+
+    h3. placeServiceOrder
+    {status:colour=Yellow|title=post|subtle=false}
+    {code}
+    post /service-order
+    {code}
+    *Summary:* Add an Service Order
+    *Description:* 
+
+
+    h4. Parameters
+
+        h5. Body Parameter
+        ||Name||Description||Required||Default||Pattern||
+        |body |order added |(/) | |  |
+
+
+
+
+
+
+
+    h4. Responses
+        *Status Code:* 200
+        *Message:*     successful operation
+        {code:title=Response Type}
+ServiceOrder
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "successful operation",
+  "schema" : {
+    "$ref" : "#/definitions/ServiceOrder"
+  }
+}
+        {code}
+        *Status Code:* 400
+        *Message:*     Invalid Order
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Invalid Order"
+}
+        {code}
+    ----
+
+    h3. updateServiceOrder
+    {status:colour=Yellow|title=put|subtle=false}
+    {code}
+    put /service-order
+    {code}
+    *Summary:* Update an existing service order
+    *Description:* 
+
+
+    h4. Parameters
+
+        h5. Body Parameter
+        ||Name||Description||Required||Default||Pattern||
+        |body |Service Order object that needs to be updated |(/) | |  |
+
+
+
+
+
+
+
+    h4. Responses
+        *Status Code:* 400
+        *Message:*     Invalid ID supplied
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Invalid ID supplied"
+}
+        {code}
+        *Status Code:* 404
+        *Message:*     Item not found
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Item not found"
+}
+        {code}
+        *Status Code:* 405
+        *Message:*     Validation exception
+        {code:title=Response Type}
+
+        {code}
+        See [#models]
+
+
+
+        {code:title=Response Schema |collapse=true}
+{
+  "description" : "Validation exception"
+}
+        {code}
+    ----
+
+h2. Models
+
+        h3. Area
+        ||Field Name||Required||Type||Description||
+         |id | |Long | |
+ |code | |String | |
+ |name | |String | |
+ |description | |String | |
+        h3. Item
+        ||Field Name||Required||Type||Description||
+         |id | |Long | |
+ |code | |String | |
+ |name | |String | |
+ |description | |String | |
+ |price | |String | |
+ |quantity | |String | |
+ |type | |String | |
+ |status | |String |item status in the service order |
+        h3. ServiceOrder
+        ||Field Name||Required||Type||Description||
+         |id | |Long | |
+ |orderNumber | |String | |
+ |orderDate | |Date | |
+ |endDate | |Date | |
+ |area | |array[Area] | |
+ |supplier | |array[Supplier] | |
+ |requester | |String | |
+ |numberRequest | |String | |
+ |quantity | |Integer | |
+ |priceTotal | |Integer | |
+ |paymentMethod | |String | |
+ |reference | |String | |
+ |status | |String |Order Status |
+ |complete | |Boolean | |
+        h3. Supplier
+        ||Field Name||Required||Type||Description||
+         |id | |Long | |
+ |code | |String | |
+ |description | |String | |
+ |name | |String | |
+ |telephoneNumber | |String | |
+ |address | |String | |
+ |status | |String |item status in the service order |
